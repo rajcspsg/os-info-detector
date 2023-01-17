@@ -1,0 +1,36 @@
+buildscript {
+    repositories {
+        mavenCentral()
+    }
+}
+
+plugins {
+    id 'java'
+    id 'com.google.osdetector' version '1.7.1'
+}
+
+
+group 'org.example'
+version '1.0-SNAPSHOT'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    if(osdetector.os == "osx") {
+        // println('adding  osx ' + osdetector.arch)
+        implementation 'com.google.protobuf:protoc:2.5.0'
+        implementation 'com.google.protobuf:protobuf-java:2.5.0:osx-x86_64'
+    } else {
+        // println(' adding normal' + osdetector.arch)
+        implementation 'com.google.protobuf:protoc:2.5.0'
+        implementation 'com.google.protobuf:protobuf-java:2.5.0:osx-x86_64'
+    }
+    testImplementation 'org.junit.jupiter:junit-jupiter-api:5.8.1'
+    testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.8.1'
+}
+
+test {
+    useJUnitPlatform()
+}

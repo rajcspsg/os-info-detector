@@ -1,0 +1,1 @@
+please run `softwareupdate --install-rosetta` to make mac m1 compatible with intel
